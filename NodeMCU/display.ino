@@ -12,6 +12,7 @@
 #include <SPI.h>
 #include <Wire.h>
 
+#include "serialCom.h"
 #include "sensors.h"
 
 bool enabled = false;
@@ -65,24 +66,24 @@ void displayDatas(void)
 	oled.setTextXY(5,11);
 	oled.putString("     ");
 	oled.setTextXY(5,11);
-	//oled.putString(String(soilTemp));
+	oled.putString(String(getSerialSoilTemp(0)));
 
 	oled.setTextXY(6,0);
 	oled.putString("SoilHum[%] ");
 	oled.setTextXY(6,11);
 	oled.putString("     ");
 	oled.setTextXY(6,11);
-	//oled.putString(String(soilMoister));
+	oled.putString(String(getSerialSoilHum(0)));
 
 	oled.setTextXY(7,0);
 	oled.putString("PUMP: ");
 	oled.setTextXY(7,6);
-	//oled.putString(String(pumpStatus));
+	oled.putString(String(getSerialPump(0)));
 
 	oled.setTextXY(7,7);
 	oled.putString("  LAMP: ");
 	oled.setTextXY(7,15);
-	//oled.putString(String(lampStatus));
+	oled.putString(String(getSerialLamp()));
 }
 
 void clearDisplay()

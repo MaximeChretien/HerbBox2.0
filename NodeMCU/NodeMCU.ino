@@ -28,6 +28,7 @@ void setup() {
 	timer.setInterval(TM_READ_BTN, localControl);
 	timer.setInterval(TM_READ_DHT, updateDHT);
 	timer.setInterval(TM_UPDATE_DISPLAY, updateDisplay);
+	timer.setInterval(TM_GET_SOIL, getSerialSensors);
 }
 
 void loop() {
