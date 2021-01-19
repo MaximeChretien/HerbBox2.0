@@ -33,8 +33,6 @@ void getSerialSensors() {
 	// Request values
 	Serial.print("SE");
 
-	delay(250);
-
 	// Result formating : S(P1)(P2)(P3)(L)#(T1)#(T2)#(T3)#(H1)#(H2)#(H3)E
 	// Px : Pump number x state (0 or 1)
 	// L : Lamp state (0 or 1)
@@ -51,35 +49,34 @@ void getSerialSensors() {
 
 	tempLampState = result.substring(4,5).toInt();
 
-	startIndex = result.indexOf('#');
-	endIndex = result.indexOf('#', startIndex+1);
+	startIndex = result.indexOf('#') + 1;
+	endIndex = result.indexOf('#', startIndex);
 
-	soilTemp[0] = result.substring(startIndex+1, endIndex).toFloat();
+	soilTemp[0] = result.substring(startIndex, endIndex).toFloat();
 
-	startIndex = result.indexOf('#', endIndex+1);
-	endIndex = result.indexOf('#', startIndex+1);
+	startIndex = endIndex + 1;
+	endIndex = result.indexOf('#', startIndex);
 
-	soilTemp[1] = result.substring(startIndex+1, endIndex).toFloat();
+	soilTemp[1] = result.substring(startIndex, endIndex).toFloat();
 
-	startIndex = result.indexOf('#', endIndex+1);
-	endIndex = result.indexOf('#', startIndex+1);
+	startIndex = endIndex + 1;
+	endIndex = result.indexOf('#', startIndex);
 
-	soilTemp[2] = result.substring(startIndex+1, endIndex).toFloat();
+	soilTemp[2] = result.substring(startIndex, endIndex).toFloat();
 
-	startIndex = result.indexOf('#', endIndex+1);
-	endIndex = result.indexOf('#', startIndex+1);
+	startIndex = endIndex + 1;
+	endIndex = result.indexOf('#', startIndex);
 
-	soilHum[0] = result.substring(startIndex+1, endIndex).toFloat();
+	soilHum[0] = result.substring(startIndex, endIndex).toFloat();
 
-	startIndex = result.indexOf('#', endIndex+1);
-	endIndex = result.indexOf('#', startIndex+1);
+	startIndex = endIndex + 1;
+	endIndex = result.indexOf('#', startIndex);
 
-	soilHum[1] = result.substring(startIndex+1, endIndex).toFloat();
+	soilHum[1] = result.substring(startIndex, endIndex).toFloat();
 
-	startIndex = result.indexOf('#', endIndex+1);
-	endIndex = result.indexOf('E', startIndex+1);
+	startIndex = endIndex + 1;
 
-	soilHum[2] = result.substring(startIndex+1, endIndex).toFloat();
+	soilHum[2] = result.substring(startIndex).toFloat();
 
 	checkResults();
 }
