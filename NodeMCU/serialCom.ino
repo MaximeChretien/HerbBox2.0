@@ -31,7 +31,9 @@ void getSerialSensors() {
 	int startIndex, endIndex;
 
 	// Request values
-	Serial.print("SR");
+	Serial.print("SE");
+
+	delay(250);
 
 	// Result formating : S(P1)(P2)(P3)(L)#(T1)#(T2)#(T3)#(H1)#(H2)#(H3)E
 	// Px : Pump number x state (0 or 1)
@@ -84,12 +86,12 @@ void getSerialSensors() {
 
 void setSerialPump(int nb, bool state) {
 	pumpState[nb] = state;
-	Serial.print("P" + String(nb) + String(state));
+	Serial.print("P" + String(nb) + String(state) + "E");
 }
 
 void setSerialLamp(bool state) {
 	lampState = state;
-	Serial.print("L" + String(state));
+	Serial.print("L" + String(state) + "E");
 }
 
 void checkResults() {

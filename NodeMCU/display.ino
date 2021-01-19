@@ -12,8 +12,8 @@
 #include <SPI.h>
 #include <Wire.h>
 
-#include "serialCom.h"
 #include "sensors.h"
+#include "serialCom.h"
 
 bool enabled = false;
 

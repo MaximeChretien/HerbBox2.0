@@ -14,14 +14,15 @@
 #include "blynk.h"
 #include "constants.h"
 #include "display.h"
-#include "serialCom.h"
 #include "sensors.h"
+#include "serialCom.h"
 
 SimpleTimer timer;
 
 void localControl();
 
 void setup() {
+	initSerial();
 	initSensors();
 	initDisplay();
 
@@ -39,11 +40,11 @@ void localControl() {
 	updateBtns();
 
 	if (getLampBtn()) {
-		//TODO
+		setSerialLamp(!getSerialLamp());
 	}
 
 	if (getPumpBtn()) {
-		//TODO
+		setSerialPump(0, !getSerialPump(0));
 	}
 
 	if (getSensorsBtn()) {
