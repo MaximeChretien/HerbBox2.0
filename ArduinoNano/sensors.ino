@@ -35,6 +35,8 @@ void initSensors() {
 }
 
 void updateTempSensors() {
+	DS18B20.requestTemperatures();
+
 	for (int i = 0; i < 3; i++) {
 		soilTemp[i] = DS18B20.getTempCByIndex(i);
 	}
@@ -62,11 +64,8 @@ void updateHumSensors() {
 	digitalWrite(MOIST2_ALIM, LOW);
 	digitalWrite(MOIST3_ALIM, LOW);
 	soilHum[0] /= MOIST_N;
-	soilHum[0] = map(soilHum[0], 600.0, 350.0, 0.0, 100.0);
 	soilHum[1] /= MOIST_N;
-	soilHum[1] = map(soilHum[1], 600.0, 350.0, 0.0, 100.0);
 	soilHum[2] /= MOIST_N;
-	soilHum[2] = map(soilHum[2], 600.0, 350.0, 0.0, 100.0);
 }
 
 float getSoilTemp(int nb) {
