@@ -9,14 +9,24 @@
  *    @version : 0.1
  */
 
+#include <SimpleTimer.h>
+
 #include "constants.h"
 #include "relays.h"
-#include "serialCom.h"
 #include "sensors.h"
+#include "serialCom.h"
+
+SimpleTimer timer;
 
 void setup() {
+	initSensors();
+	initSerial();
 
+	timer.setInterval(TM_READ_TEMP, updateTempSensors);
+	timer.setInterval(TM_READ_HUM, updateHumSensors);
+	timer.setInterval(TM_READ_SERIAL, getSerial);
 }
 
 void loop() {
+	timer.run();
 }

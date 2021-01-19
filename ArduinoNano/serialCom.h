@@ -7,3 +7,6 @@
  *    @version : 0.1
  */
 
+void initSerial();
+void getSerial();
+void sendSerialData();

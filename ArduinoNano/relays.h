@@ -6,3 +6,10 @@
  *    @version : 0.1
  */
 
+void initRelays();
+
+void setPump(int nb, bool state);
+void setLamp(bool state);
+
+bool getPump(int nb);
+bool getLamp();

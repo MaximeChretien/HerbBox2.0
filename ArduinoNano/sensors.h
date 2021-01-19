@@ -6,3 +6,9 @@
  *    @version : 0.1
  */
 
+void initSensors();
+void updateTempSensors();
+void updateHumSensors();
+
+float getSoilTemp(int nb);
+float getSoilHum(int nb);
