@@ -1,6 +1,6 @@
 /*
  *    @author  : Maxime Chretien (MixLeNain) && Zoomacom / OpenFactory
- *    @mail    : mchretien@linuxmail.org && TODO
+ *    @mail    : mchretien@linuxmail.org
  *    @project : HerbBox 2.0
  *    @summary : All the constants used in the system.
  *    @version : 1.0

@@ -1,6 +1,6 @@
 /*
  *    @author  : Maxime Chretien (MixLeNain) && Zoomacom / OpenFactory
- *    @mail    : mchretien@linuxmail.org && TODO
+ *    @mail    : mchretien@linuxmail.org
  *    @project : HerbBox 2.0
  *    @summary : An automatic system to control the growth of 3 plants.
  *		It's build around two microcontrollers communicating.
