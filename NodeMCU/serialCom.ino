@@ -4,7 +4,7 @@
  *    @project : HerbBox 2.0
  *    @summary : Implementation of functions used to control the serial communication
  *		between the two microcontrollers.
- *    @version : 0.1
+ *    @version : 1.0
  */
 
 #include "serialCom.h"
@@ -68,15 +68,18 @@ void getSerialSensors() {
 	endIndex = result.indexOf('#', startIndex);
 
 	soilHum[0] = result.substring(startIndex, endIndex).toFloat();
+	soilHum[0] = map(soilHum[0], 780, 317, 0, 100);
 
 	startIndex = endIndex + 1;
 	endIndex = result.indexOf('#', startIndex);
 
 	soilHum[1] = result.substring(startIndex, endIndex).toFloat();
+	soilHum[1] = map(soilHum[1], 780, 317, 0, 100);
 
 	startIndex = endIndex + 1;
 
 	soilHum[2] = result.substring(startIndex).toFloat();
+	soilHum[2] = map(soilHum[2], 780, 317, 0, 100);
 
 	checkResults();
 }
@@ -100,9 +103,16 @@ void checkResults() {
 		if (tempPumpState[i] != pumpState[i]) {
 			setSerialPump(i, pumpState[i]);
 		}
+
+		if (soilTemp[i] == 0.0) {
+			soilTemp[i] = airTemp;
+		}
+
+		if (soilHum[i] == 0.0) {
+			soilHum[i] = airHum;
+		}
 	}
 
-	//TODO
 }
 
 float getSerialSoilTemp(int nb) {

@@ -3,7 +3,7 @@
  *    @mail    : mchretien@linuxmail.org && TODO
  *    @project : HerbBox 2.0
  *    @summary : All the constants used in the system.
- *    @version : 0.1
+ *    @version : 1.0
  */
 
 // Moisture sensors

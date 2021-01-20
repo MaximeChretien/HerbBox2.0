@@ -6,7 +6,7 @@
  *		It's build around two microcontrollers communicating.
  *		This is the Arduino Nano part.
  *		See TODO for more informations.
- *    @version : 0.1
+ *    @version : 1.0
  */
 
 #include <SimpleTimer.h>
@@ -19,6 +19,7 @@
 SimpleTimer timer;
 
 void setup() {
+	initRelays();
 	initSensors();
 	initSerial();
 
