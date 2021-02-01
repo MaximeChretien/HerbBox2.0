@@ -7,11 +7,24 @@
  */
 
 // Automatic control parameters
-#define DRY_SOIL      66
-#define WET_SOIL      85
+// Plant 1
+#define PLANT1_DRY_SOIL      66
+#define PLANT1_WET_SOIL      85
+#define PLANT1_TIME_PUMP_ON  15000L
+
+// Plant 2
+#define PLANT2_DRY_SOIL      66
+#define PLANT2_WET_SOIL      85
+#define PLANT2_TIME_PUMP_ON  15000L
+
+// Plant 3
+#define PLANT3_DRY_SOIL      66
+#define PLANT3_WET_SOIL      85
+#define PLANT3_TIME_PUMP_ON  15000L
+
+// All plants
 #define COLD_TEMP     12
 #define HOT_TEMP      22
-#define TIME_PUMP_ON  15000L
 #define TIME_LAMP_ON  15000L
 
 // DHT

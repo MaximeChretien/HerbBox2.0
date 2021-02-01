@@ -78,17 +78,17 @@ void autoControlChecks() {
 		autoControlLampTime = millis();
 	}
 
-	if (getSerialSoilHum(0) < DRY_SOIL) {
+	if (getSerialSoilHum(0) < PLANT1_DRY_SOIL) {
 		autoControlPump1Status = true;
 		autoControlPump1Time = millis();
 	}
 
-	if (getSerialSoilHum(1) < DRY_SOIL) {
+	if (getSerialSoilHum(1) < PLANT2_DRY_SOIL) {
 		autoControlPump2Status = true;
 		autoControlPump2Time = millis();
 	}
 
-	if (getSerialSoilHum(2) < DRY_SOIL) {
+	if (getSerialSoilHum(2) < PLANT3_DRY_SOIL) {
 		autoControlPump3Status = true;
 		autoControlPump3Time = millis();
 	}
@@ -104,21 +104,21 @@ void autoControl() {
 
 	if(autoControlPump1Status && !getSerialPump(0)) {
 		setSerialPump(0, true);
-	} else if (getSerialPump(0) && autoControlPump1Status && (millis() - autoControlPump1Time) > TIME_PUMP_ON) {
+	} else if (getSerialPump(0) && autoControlPump1Status && (millis() - autoControlPump1Time) > PLANT1_TIME_PUMP_ON) {
 		setSerialPump(0, false);
 		autoControlPump1Status = false;
 	}
 
 	if(autoControlPump2Status && !getSerialPump(1)) {
 		setSerialPump(1, true);
-	} else if (getSerialPump(1) && autoControlPump2Status && (millis() - autoControlPump2Time) > TIME_PUMP_ON) {
+	} else if (getSerialPump(1) && autoControlPump2Status && (millis() - autoControlPump2Time) > PLANT2_TIME_PUMP_ON) {
 		setSerialPump(1, false);
 		autoControlPump2Status = false;
 	}
 
 	if(autoControlPump3Status && !getSerialPump(2)) {
 		setSerialPump(2, true);
-	} else if (getSerialPump(2) && autoControlPump3Status && (millis() - autoControlPump3Time) > TIME_PUMP_ON) {
+	} else if (getSerialPump(2) && autoControlPump3Status && (millis() - autoControlPump3Time) > PLANT3_TIME_PUMP_ON) {
 		setSerialPump(2, false);
 		autoControlPump3Status = false;
 	}
