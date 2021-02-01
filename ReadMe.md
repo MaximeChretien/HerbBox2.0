@@ -35,7 +35,7 @@ TODO
 TODO
 
 ## Automatic control settings
-All settings for the automatic control are stored in NodeMCU/constants.h . It means that the NodeMCU program needs to be reuploaded when you want to make changes to the settings.
+All settings for the automatic control are stored in src/NodeMCU/constants.h . It means that the NodeMCU program needs to be reuploaded when you want to make changes to the settings.
 
 ### Soil settings
 - **PLANT1_DRY_SOIL**: Value of the soil humidity under which the soil is considered dry. Value between 0% and 100% (Default: 66).
