@@ -9,6 +9,10 @@
 
 #include "serialCom.h"
 
+#include <SoftwareSerial.h>
+
+SoftwareSerial SerialCom(D7,D8);
+
 bool lampState;
 bool tempLampState;
 bool pumpState[3];
@@ -17,7 +21,7 @@ float soilTemp[3];
 float soilHum[3];
 
 void initSerial() {
-	Serial.begin(9600);
+	SerialCom.begin(9600);
 
 	lampState = false;
 	for (int i = 0; i < 3; i++) {
@@ -31,14 +35,14 @@ void getSerialSensors() {
 	int startIndex, endIndex;
 
 	// Request values
-	Serial.print("SE");
+	SerialCom.print("SE");
 
 	// Result formating : S(P1)(P2)(P3)(L)#(T1)#(T2)#(T3)#(H1)#(H2)#(H3)E
 	// Px : Pump number x state (0 or 1)
 	// L : Lamp state (0 or 1)
 	// Tx : Soil temperature number x (float value)
 	// Hx : Soil humidity number x (float value)
-	String result = Serial.readStringUntil('E');
+	String result = SerialCom.readStringUntil('E');
 
 	if (result.charAt(0) != 'S')
 		return;
@@ -86,12 +90,12 @@ void getSerialSensors() {
 
 void setSerialPump(int nb, bool state) {
 	pumpState[nb] = state;
-	Serial.print("P" + String(nb) + String(state) + "E");
+	SerialCom.print("P" + String(nb) + String(state) + "E");
 }
 
 void setSerialLamp(bool state) {
 	lampState = state;
-	Serial.print("L" + String(state) + "E");
+	SerialCom.print("L" + String(state) + "E");
 }
 
 void checkResults() {
