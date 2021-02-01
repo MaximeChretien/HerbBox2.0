@@ -5,7 +5,7 @@ HerbBox is an automatic system to control the humidity and the temperature of th
 This system use two microcontrollers talking together, an Arduino Nano and a NodeMCU v3 (This is because we already had them so it was better than buying a bigger microcontroller)
 
 ## Schematics
-![schematics](/Schematics/schematics.png)
+![schematics](/schematics/schematics.png)
 
 ## NodeMCU
 ### Required arduino libraries
