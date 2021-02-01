@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 1
 Title "HerbBox2.0"
 Date "2021-02-01"
-Rev "v1.1"
+Rev "v1.2"
 Comp "Zoomacom / OpenFactory"
 Comment1 "mchretien@linuxmail.org"
 Comment2 "Maxime Chretien"
@@ -151,8 +151,6 @@ F 3 "~" H 4100 2900 50  0001 C CNN
 	1    4100 2900
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4600 2550 4600 3550
 Wire Wire Line
 	4550 2650 6150 2650
 Wire Wire Line
@@ -329,10 +327,6 @@ F 3 "" H 6250 1450 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6250 950  6250 1450
-Wire Wire Line
-	4600 2550 6150 2550
-Wire Wire Line
-	2950 3550 4600 3550
 $Comp
 L Sensor_Temperature:DS18B20 U4
 U 1 1 601D4C7D
@@ -879,7 +873,6 @@ NoConn ~ 1350 3050
 NoConn ~ 1350 2950
 NoConn ~ 1350 2850
 NoConn ~ 1350 2550
-NoConn ~ 2950 2550
 NoConn ~ 2950 3050
 NoConn ~ 2950 3150
 NoConn ~ 2950 3850
@@ -945,4 +938,7 @@ Wire Wire Line
 	3950 3450 3950 2650
 NoConn ~ 2950 3650
 NoConn ~ 2950 3750
+Wire Wire Line
+	2950 2550 6150 2550
+NoConn ~ 2950 3550
 $EndSCHEMATC

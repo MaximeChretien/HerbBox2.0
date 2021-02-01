@@ -11,7 +11,7 @@
 
 #include <SoftwareSerial.h>
 
-SoftwareSerial SerialCom(D7,D8);
+SoftwareSerial SerialCom(D7,D0);
 
 bool lampState;
 bool tempLampState;
