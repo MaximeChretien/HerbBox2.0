@@ -18,10 +18,12 @@
 #include <SimpleTimer.h>
 SimpleTimer timer;
 
+// Define functions for manual and automatic control
 void localControl();
 void autoControlChecks();
 void autoControl();
 
+// Define parameters for automatic control.
 bool autoControlLampStatus = false;
 long autoControlLampTime = 0;
 bool autoControlPump1Status = false;
@@ -32,11 +34,13 @@ bool autoControlPump3Status = false;
 long autoControlPump3Time = 0;
 
 void setup() {
+	// Init all the parts of the system
 	initBlynk();
 	initDisplay();
 	initSensors();
 	initSerial();
 
+	// Define timers for all the parts
 	timer.setInterval(TM_AUTO_CTRL, autoControl);
 	timer.setInterval(TM_AUTO_CTRL_CHECK, autoControlChecks);
 	timer.setInterval(TM_READ_BTN, localControl);
@@ -47,10 +51,13 @@ void setup() {
 }
 
 void loop() {
+	// Run Timers and Blynk system
 	timer.run();
 	runBlynk();
 }
 
+// Manual Control
+// Read buttons states and act accordingly
 void localControl() {
 	updateBtns();
 
@@ -72,6 +79,8 @@ void localControl() {
 	}
 }
 
+// Automatic control checks
+// Check sensors values and enable pumps or lamp if needed
 void autoControlChecks() {
 	if (getSerialSoilTemp(0) < COLD_TEMP || getSerialSoilTemp(1) < COLD_TEMP || getSerialSoilTemp(2) < COLD_TEMP ) {
 		autoControlLampStatus = true;
@@ -94,6 +103,8 @@ void autoControlChecks() {
 	}
 }
 
+// Automatic control
+// If an actuator needs to be enabled, enable it for the needed time and disable it when the time is over
 void autoControl() {
 	if(autoControlLampStatus && !getSerialLamp()) {
 		setSerialLamp(true);

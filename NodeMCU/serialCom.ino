@@ -11,6 +11,7 @@
 
 #include <SoftwareSerial.h>
 
+// Init SoftwareSerial lines
 SoftwareSerial SerialCom(D7,D0);
 
 bool lampState;
@@ -21,8 +22,10 @@ float soilTemp[3];
 float soilHum[3];
 
 void initSerial() {
+	// Start Serial
 	SerialCom.begin(9600);
 
+	// Reset all variables
 	lampState = false;
 	for (int i = 0; i < 3; i++) {
 		pumpState[i] = false;
@@ -47,6 +50,7 @@ void getSerialSensors() {
 	if (result.charAt(0) != 'S')
 		return;
 
+	// Split every values and store them in the corresponding variables
 	for (int i = 0; i < 3; i++) {
 		tempPumpState[i] = result.substring(i+1, i+2).toInt();
 	}
@@ -85,29 +89,37 @@ void getSerialSensors() {
 	soilHum[2] = result.substring(startIndex).toFloat();
 	soilHum[2] = map(soilHum[2], 780, 317, 0, 100);
 
+	// Make sure the results are correct
 	checkResults();
 }
 
 void setSerialPump(int nb, bool state) {
 	pumpState[nb] = state;
+	// Send a request to change the pump state
 	SerialCom.print("P" + String(nb) + String(state) + "E");
 }
 
 void setSerialLamp(bool state) {
 	lampState = state;
+	// Send a resquet to change the lamp state
 	SerialCom.print("L" + String(state) + "E");
 }
 
 void checkResults() {
+	// If lamp state is not good, send a request to change it
 	if (tempLampState != lampState) {
 		setSerialLamp(lampState);
 	}
 
 	for (int i = 0; i < 3; i++) {
+		// If pump state is not good, send a request to change it
 		if (tempPumpState[i] != pumpState[i]) {
 			setSerialPump(i, pumpState[i]);
 		}
 
+		// In case of a communication error, the values are set to 0
+		// so we give them the values of the air
+		// while waiting for a good value from the Serial line
 		if (soilTemp[i] == 0.0) {
 			soilTemp[i] = airTemp;
 		}

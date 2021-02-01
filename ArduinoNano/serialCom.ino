@@ -13,16 +13,20 @@
 #include "sensors.h"
 
 void initSerial() {
+	// Init Serial communication
 	Serial.begin(9600);
 }
 
 void getSerial() {
+	// If there's no waiting messages, go out of the function
 	if(!Serial.available()) {
 		return;
 	}
 
+	// Read Serial message
 	String result = Serial.readStringUntil('E');
 
+	// React to the message with the right function
 	switch (result.charAt(0)) {
 		case 'S':
 			sendSerialData();
@@ -36,6 +40,7 @@ void getSerial() {
 	}
 }
 
+// Send all sensors values in a specific format
 void sendSerialData() {
 	Serial.print(	"S" + String(getPump(0)) +
 			String(getPump(1)) +

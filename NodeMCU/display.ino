@@ -15,14 +15,17 @@
 #include "sensors.h"
 #include "serialCom.h"
 
+// Init display state value (0: Disable display, 1..3: Plant 1..3 informations)
 int state = 0;
 
 void initDisplay() {
+	// Init display connection
 	Wire.begin();
 	oled.init();                      // Initialze SSD1306 OLED display
 	clearDisplay();
 	//oled.setFont(font5x7);            // Set font type (default 8x8)
 	oled.clearDisplay();              // Clear screen
+	// Put a basic text
 	oled.setTextXY(0,0);
 	oled.putString("   HerbBox 2.0");
 	oled.setTextXY(7,0);

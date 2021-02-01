@@ -19,15 +19,18 @@
 SimpleTimer timer;
 
 void setup() {
+	// Init all the parts of the system
 	initRelays();
 	initSensors();
 	initSerial();
 
+	// Define timers for all the parts
 	timer.setInterval(TM_READ_TEMP, updateTempSensors);
 	timer.setInterval(TM_READ_HUM, updateHumSensors);
 	timer.setInterval(TM_READ_SERIAL, getSerial);
 }
 
 void loop() {
+	// Run Timers
 	timer.run();
 }

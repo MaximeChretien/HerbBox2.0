@@ -12,14 +12,17 @@
 #include "sensors.h"
 #include "serialCom.h"
 
+// Define Blynk leds
 WidgetLED PUMP1(V0);
 WidgetLED PUMP2(V1);
 WidgetLED PUMP3(V2);
 WidgetLED LAMP(V3);
 
 void initBlynk() {
+	// Init WiFi and Blynk connections
 	Blynk.begin(BLYNK_TOKEN, WIFI_SSID, WIFI_PASSWD);
 
+	// Disable leds
 	PUMP1.off();
 	PUMP2.off();
 	PUMP3.off();
@@ -30,6 +33,7 @@ void runBlynk() {
 	Blynk.run();
 }
 
+// If an actuator is enabled, enable the coresponding led
 void updateBlynkLeds() {
 	if (getSerialPump(0)) {
 		PUMP1.on();
@@ -56,6 +60,7 @@ void updateBlynkLeds() {
 	}
 }
 
+// Write sensors values to the app virtual ports
 void sendBlynkDatas() {
 	Blynk.virtualWrite(10, getAirTemp());
 	Blynk.virtualWrite(11, getAirHum());

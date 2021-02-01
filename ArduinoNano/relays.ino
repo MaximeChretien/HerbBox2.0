@@ -9,11 +9,13 @@
 #include "relays.h"
 
 void initRelays() {
+	// Init actuators pins
 	pinMode(PUMP1_PIN, OUTPUT);
 	pinMode(PUMP2_PIN, OUTPUT);
 	pinMode(PUMP3_PIN, OUTPUT);
 	pinMode(LAMP_PIN, OUTPUT);
 
+	// Put all actuators to low to disable them
 	digitalWrite(PUMP1_PIN, LOW);
 	digitalWrite(PUMP2_PIN, LOW);
 	digitalWrite(PUMP3_PIN, LOW);

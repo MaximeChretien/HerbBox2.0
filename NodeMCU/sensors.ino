@@ -12,6 +12,7 @@
 
 #include "constants.h"
 
+// Init DHT sensor
 DHT dht(DHT_PIN, DHT_TYPE);
 
 float airTemp = 0;
@@ -22,21 +23,24 @@ bool pumpBtnStatus = false;
 bool sensorsBtnStatus = false;
 
 void initSensors() {
+	// Init DHT communication
 	dht.begin();
 
+	// Init buttons pins
 	pinMode(LAMP_BTN, INPUT_PULLUP);
 	pinMode(PUMP_BTN, INPUT_PULLUP);
 	pinMode(SENSORS_BTN, INPUT_PULLUP);
 }
 
 void updateBtns() {
-	// TODO : debounce btns !!!
+	// Get buttons values
 	lampBtnStatus = !digitalRead(LAMP_BTN);
 	pumpBtnStatus = !digitalRead(PUMP_BTN);
 	sensorsBtnStatus = !digitalRead(SENSORS_BTN);
 }
 
 void updateDHT() {
+	// Get DHT values
 	airTemp = dht.readTemperature();
 	airHum = dht.readHumidity();
 }
