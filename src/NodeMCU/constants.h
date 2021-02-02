@@ -32,8 +32,8 @@
 #define DHT_TYPE DHT11
 
 // Buttons
-#define LAMP_BTN D4
-#define PUMP_BTN D5
+#define LAMP_BTN D5
+#define PUMP_BTN D4
 #define SENSORS_BTN D6
 
 // Blynk
