@@ -10,13 +10,13 @@
 #define MOIST1_DATA A5
 #define MOIST2_DATA A6
 #define MOIST3_DATA A7
-#define MOIST1_ALIM 3
-#define MOIST2_ALIM 4
-#define MOIST3_ALIM 5
+#define MOIST1_ALIM 2
+#define MOIST2_ALIM 3
+#define MOIST3_ALIM 4
 #define MOIST_N 3 // Number of measures to get the average value
 
 // DS18B20
-#define ONEWIRE_BUS 2
+#define ONEWIRE_BUS 5
 
 // Relays
 #define PUMP1_PIN 12

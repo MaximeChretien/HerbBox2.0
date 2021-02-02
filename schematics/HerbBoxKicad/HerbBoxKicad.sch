@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "HerbBox2.0"
-Date "2021-02-01"
-Rev "v1.2"
+Date "2021-02-02"
+Rev "v1.3"
 Comp "Zoomacom / OpenFactory"
 Comment1 "mchretien@linuxmail.org"
 Comment2 "Maxime Chretien"
@@ -424,7 +424,7 @@ Wire Wire Line
 Wire Wire Line
 	4550 6100 4750 6100
 Wire Wire Line
-	4750 2750 6150 2750
+	4750 3050 6150 3050
 Connection ~ 4550 6100
 $Comp
 L power:GND #PWR011
@@ -506,21 +506,15 @@ Wire Wire Line
 	7550 5150 7900 5150
 Connection ~ 7550 5650
 Wire Wire Line
-	5800 5050 5800 3050
-Wire Wire Line
-	5800 3050 6150 3050
+	5800 2950 6150 2950
 Wire Wire Line
 	5800 5050 7900 5050
 Wire Wire Line
-	5700 5550 5700 2950
-Wire Wire Line
-	5700 2950 6150 2950
+	5700 2850 6150 2850
 Wire Wire Line
 	5700 5550 7900 5550
 Wire Wire Line
-	5600 6050 5600 2850
-Wire Wire Line
-	5600 2850 6150 2850
+	5600 2750 6150 2750
 Wire Wire Line
 	7550 5650 7550 6150
 Wire Wire Line
@@ -539,8 +533,6 @@ Wire Wire Line
 	7650 5950 7650 3850
 Wire Wire Line
 	7650 3850 7150 3850
-Wire Wire Line
-	4750 2750 4750 6100
 $Comp
 L power:GND #PWR013
 U 1 1 601AF0AA
@@ -941,4 +933,12 @@ NoConn ~ 2950 3750
 Wire Wire Line
 	2950 2550 6150 2550
 NoConn ~ 2950 3550
+Wire Wire Line
+	4750 3050 4750 6100
+Wire Wire Line
+	5800 2950 5800 5050
+Wire Wire Line
+	5700 2850 5700 5550
+Wire Wire Line
+	5600 2750 5600 6050
 $EndSCHEMATC
