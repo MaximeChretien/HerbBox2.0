@@ -7,7 +7,11 @@ This system use two microcontrollers talking together, an Arduino Nano and a Nod
 (Documentation in progress)
 
 ## Schematics
-![schematics](/schematics/schematics.png)
+### Principle diagram
+![principle diagram](/schematics/principleDiagram.png)
+
+### Electronical schematic
+![electronical schematic](/schematics/schematics.png)
 
 ## NodeMCU
 ### Board settings
