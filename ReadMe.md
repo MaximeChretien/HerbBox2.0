@@ -13,6 +13,28 @@ This system use two microcontrollers talking together, an Arduino Nano and a Nod
 ### Electronical schematic
 ![electronical schematic](/schematics/schematics.png)
 
+## Parts list
+|               Name              |                                 Description                                | Quantity | Unitary price | Price |
+|:-------------------------------:|:--------------------------------------------------------------------------:|:--------:|:-------------:|:-----:|
+|         Lolin NodeMCU v3        |                         Main microcontroller board                         |     1    |       $7      |   $7  |
+|           Arduino Nano          |                       Secondary microcontroller board                      |     1    |       $5      |   $5  |
+|       Arduino relay shield      |                               4 relays board                               |     1    |      $20      |  $20  |
+|              DHT11              |                       Temperature and humidity sensor                      |     1    |       $3      |   $3  |
+|             DS18B20             |                             Temperature sensor                             |     3    |       $4      |  $12  |
+| Capacitive moisture sensor v1.2 |                            Soil humidity sensor                            |     3    |       $3      |   $9  |
+|             SSD1306             |                           128x64 i2c OLED display                          |     1    |       $2      |   $2  |
+|           Push button           |                           For the manual control                           |     3    |       $1      |   $3  |
+|          220 Ω resistor         |                           For the voltage divider                          |     1    |      $0.1     |  $0.1 |
+|          430 Ω resistor         |                           For the voltage divider                          |     1    |      $0.1     |  $0.1 |
+|         4.7 kΩ resistor         |                             For the OneWire bus                            |     1    |      $0.1     |  $0.1 |
+|             Pump 12V            |                        Pump used to water the plants                       |     3    |      $10      |  $30  |
+|    Lamp 220V for plant growth   | Lamp used to light up the plants (emits in the blue and red spectrum only) |     1    |       $5      |   $5  |
+|                                 |                                                                            |          |     Total     |  ~$96 |
+
+Note : Prices are approximates from what you can easily find online, you can find those parts for a lower and an higher price depending on where you buy them. They are just here to give you an idea of the project price.
+
+Note 2 : The Arduino relay shield can be replaced by another relay board or 4 relays which will be a lot cheaper.
+
 ## NodeMCU
 ### Board settings
 - Add the ESP8266 board library to the Arduino IDE (http://arduino.esp8266.com/stable/package_esp8266com_index.json)
