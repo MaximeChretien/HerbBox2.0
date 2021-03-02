@@ -70,7 +70,7 @@ Note 2 : The Arduino relay shield can be replaced by another relay board or 4 re
 We use an application named [Blynk](https://blynk.io/) to display sensors values on a smartphone.
 
 ### App configuration
-To connect the NodeMCU to the Blynk app you will have to generate a token in the Blynk app and copy-paste it in the **BLYNK_TOKEN** constant in src/NodeMCU/constants.h . You will also have to connect the NodeMCU to the same WiFi connection as the smartphone using the **WIFI_SSID** (WiFi name) and **WIFI_PASSWD** (WiFi password) constants.
+To connect the NodeMCU to the Blynk app you will have to generate a token in the Blynk app and copy-paste it in the **BLYNK_TOKEN** constant in src/NodeMCU/constants.h . You will also have to connect the NodeMCU to a WiFi connection using the **WIFI_SSID** (WiFi name) and **WIFI_PASSWD** (WiFi password) constants.
 
 ### Exposed interface
 The NodeMCU send the values to Blynk on the following virtual lines :
@@ -102,7 +102,7 @@ All settings for the automatic control are stored in src/NodeMCU/constants.h . I
 - **PLANT1_WET_SOIL**: Value of the soil humidity over which the soil is considered wet. Value between 0% and 100% (Default: 85).
 - **PLANT1_TIME_PUMP_ON**: Duration during which the pump is powered on to water the plant if the soil is dry. Value in ms with a L at the end (Default: 15000L).
 
-For plant 2 and plant 3, just change the one with a 2 or a 3 in the name instead of a 1.
+For plant 2 and plant 3, use the settings with a 2 or a 3 in the name instead of a 1.
 
 ### Air settings
 - **COLD_TEMP**: Value of the air temperature under which the air is considered cold. Value in Celsius degree (Default: 12).
