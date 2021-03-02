@@ -108,3 +108,10 @@ For plant 2 and plant 3, just change the one with a 2 or a 3 in the name instead
 - **COLD_TEMP**: Value of the air temperature under which the air is considered cold. Value in Celsius degree (Default: 12).
 - **HOT_TEMP**: Value of the air temperature over which the air is considered hot. Value in Celsuis degree (Default: 22).
 - **TIME_LAMP_ON**: Duration during which the lamp is powered on to warm up the plants if the temperature is cold. Value in ms with a L at the end (Default: 15000L).
+
+## How to make it
+### Build Instructions
+Build instructions are explained in this file : [build instructions](BuildInstructions.md).
+
+### Test code
+Several source files are available in the src/Tests forlder to test each part of the system. For more informations, look at the build instructions.
