@@ -1,24 +1,14 @@
-/*
- *    @author  : Maxime Chretien (MixLeNain) && Zoomacom / OpenFactory
- *    @mail    : mchretien@linuxmail.org
- *    @project : HerbBox 2.0
- *    @summary : Implementation of functions used to control the sensors.
- *    @version : 1.0
- */
+#define MOIST1_DATA A5
+#define MOIST2_DATA A6
+#define MOIST3_DATA A7
+#define MOIST1_ALIM 2
+#define MOIST2_ALIM 3
+#define MOIST3_ALIM 4
+#define MOIST_N 3 // Number of measures to get the average value
 
-#include "sensors.h"
+void setup() {
+	Serial.begin(9600);
 
-#include <DallasTemperature.h>
-#include <OneWire.h>
-
-float soilTemp[3];
-float soilHum[3];
-
-// Init OneWire and DS18B20 communication system
-OneWire oneWire(ONEWIRE_BUS);
-DallasTemperature DS18B20(&oneWire);
-
-void initSensors() {
 	// Init Moisture sensors power pins
 	pinMode(MOIST1_ALIM, OUTPUT);
 	pinMode(MOIST2_ALIM, OUTPUT);
@@ -28,26 +18,11 @@ void initSensors() {
 	digitalWrite(MOIST1_ALIM, LOW);
 	digitalWrite(MOIST2_ALIM, LOW);
 	digitalWrite(MOIST3_ALIM, LOW);
-
-	// Start DS18B20 communication system
-	DS18B20.begin();
-
-	for (int i = 0; i < 3; i++) {
-		soilTemp[i] = 0;
-		soilHum[i] = 0;
-	}
 }
 
-void updateTempSensors() {
-	// Send a request to the DS18B20 sensors to get new values
-	DS18B20.requestTemperatures();
+void loop() {
+	float soilHum[3];
 
-	for (int i = 0; i < 3; i++) {
-		soilTemp[i] = DS18B20.getTempCByIndex(i);
-	}
-}
-
-void updateHumSensors() {
 	for (int i = 0; i < 3; i++) {
 		soilHum[i] = 0;
 	}
@@ -76,13 +51,17 @@ void updateHumSensors() {
 	soilHum[0] /= MOIST_N;
 	soilHum[1] /= MOIST_N;
 	soilHum[2] /= MOIST_N;
-}
 
-float getSoilTemp(int nb) {
-	return soilTemp[nb];
-}
+	// Get a pourcentage from the value
+	soilHum[0] = map(soilHum[0], 780, 317, 0, 100);
+	soilHum[1] = map(soilHum[1], 780, 317, 0, 100);
+	soilHum[2] = map(soilHum[2], 780, 317, 0, 100);
 
-float getSoilHum(int nb) {
-	return soilHum[nb];
-}
+	// Display the values in the Serial monitor
+	for(int i = 0; i < 3; i++) {
+		Serial.println("Capteur " + String(i+1) + ": " + String(soilHum[i]) + "%");
+	}
 
+	// Wait 1 second
+	delay(1000);
+}

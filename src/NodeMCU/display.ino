@@ -21,10 +21,10 @@ int state = 0;
 void initDisplay() {
 	// Init display connection
 	Wire.begin();
-	oled.init();                      // Initialze SSD1306 OLED display
+	oled.init(); // Initialze SSD1306 OLED display
 	clearDisplay();
-	//oled.setFont(font5x7);            // Set font type (default 8x8)
-	oled.clearDisplay();              // Clear screen
+	//oled.setFont(font5x7); // Set font type (default 8x8)
+	oled.clearDisplay(); // Clear screen
 	// Put a basic text
 	oled.setTextXY(0,0);
 	oled.putString("   HerbBox 2.0");
