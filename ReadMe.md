@@ -8,10 +8,10 @@ This system use two microcontrollers talking together, an Arduino Nano and a Nod
 
 ## Schematics
 ### Principle diagram
-![principle diagram](/schematics/principleDiagram.png)
+![principle diagram](schematics/principleDiagram.png)
 
 ### Electronical schematic
-![electronical schematic](/schematics/schematics.png)
+![electronical schematic](schematics/schematics.png)
 
 ## Parts list
 |               Name              |                                 Description                                | Quantity | Unitary price | Price |
@@ -92,7 +92,7 @@ It also controls 4 leds to reflect the relays states :
 ### Configuration example
 Here is an example of how we configured Blynk. At the top we have two "Value Display" to show air sensors values, in the middle we have six "Value Display" to show plant sensors values and at the bottom we have four "LED" to show the state of the pumps and the lamp.
 
-![blynk](blynk.png)
+![blynk](images/blynk.png)
 
 ## Automatic control settings
 All settings for the automatic control are stored in src/NodeMCU/constants.h . It means that the NodeMCU program needs to be reuploaded when you want to make changes to the settings.

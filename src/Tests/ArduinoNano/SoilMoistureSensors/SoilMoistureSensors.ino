@@ -59,7 +59,7 @@ void loop() {
 
 	// Display the values in the Serial monitor
 	for(int i = 0; i < 3; i++) {
-		Serial.println("Capteur " + String(i+1) + ": " + String(soilHum[i]) + "%");
+		Serial.println("Sensor " + String(i+1) + ": " + String(soilHum[i]) + "%");
 	}
 
 	// Wait 1 second
