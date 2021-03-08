@@ -58,7 +58,7 @@ First connect the three buttons to the NodeMCU as shown in the picture :
 ![Buttons connections](images/PushButtons.png)
 
 Then test the buttons using the code located in src/Tests/NodeMCU/Buttons and reading the values on the Serial Monitor (Ctrl+Shift+M) while pushing the buttons
-You should get something similar to that :
+You should get something similar to that (depending on the buttons pushed):
 ```
 Lamp button : 1
 Pump button : 0
