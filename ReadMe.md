@@ -94,6 +94,25 @@ Here is an example of how we configured Blynk. At the top we have two "Value Dis
 
 ![blynk](images/blynk.png)
 
+## Manual control
+### Display
+The OLED display is used to display the sensors values of the three plants.
+The screen have 4 different states (off, plant 1, plant 2 and plant 3).
+In each plant state you have the following values :
+ - Plant number
+ - Air Temperature (common to all plants)
+ - Air Humidity (common to all plants)
+ - Soil Temperature (specific to each plant)
+ - Soil Humidity (specific to each plant)
+ - Pump status (specific to each plant)
+ - Lamp status (common to all plants)
+
+### Buttons
+The system have three buttons :
+ - Sensors button (Pin D6) : Used to change the display state (off -> plant 1 -> plant 2 -> plant 3 -> off -> ...)
+ - Pump button (Pin D4) : Change the pump status of the current plant
+ - Lamp button (Pin D5) : Change the lamp status
+
 ## Automatic control settings
 All settings for the automatic control are stored in src/NodeMCU/constants.h . It means that the NodeMCU program needs to be reuploaded when you want to make changes to the settings.
 
