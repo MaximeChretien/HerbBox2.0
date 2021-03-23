@@ -20,7 +20,12 @@ WidgetLED LAMP(V3);
 
 void initBlynk() {
 	// Init WiFi and Blynk connections
-	Blynk.begin(BLYNK_TOKEN, WIFI_SSID, WIFI_PASSWD);
+	Blynk.config(BLYNK_TOKEN, "blynk-cloud.com", 8080);
+	Blynk.connectWiFi(WIFI_SSID, WIFI_PASSWD);
+	bool status = Blynk.connect(30000);
+	if(!status) {
+		Blynk.disconnect();
+	}
 
 	// Disable leds
 	PUMP1.off();
