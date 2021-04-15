@@ -3,7 +3,7 @@
  *    @mail    : mchretien@linuxmail.org
  *    @project : HerbBox 2.0
  *    @summary : Implementation of functions used to send datas to the Blynk system.
- *    @version : 1.0
+ *    @version : 1.2
  */
 
 #include "blynk.h"
@@ -20,8 +20,29 @@ WidgetLED LAMP(V3);
 
 void initBlynk() {
 	// Init WiFi and Blynk connections
+	BLYNK_LOG2(BLYNK_F("Connecting to "), WIFI_SSID);
+        WiFi.mode(WIFI_STA);
+	WiFi.begin(WIFI_SSID, WIFI_PASSWD);
+
+	int initCounter = 0;
+
+	// Wait for WiFi for 30s
+	while(WiFi.status() != WL_CONNECTED) {
+		if (initCounter > 60) {
+			return;
+		}
+
+		delay(500);
+		BLYNK_LOG1(BLYNK_F("."));
+		initCounter++;
+	}
+
+	BLYNK_LOG1(BLYNK_F("Connected to WiFi"));
+        IPAddress myip = WiFi.localIP();
+        (void)myip;
+        BLYNK_LOG_IP("IP: ", myip);
+
 	Blynk.config(BLYNK_TOKEN, "blynk-cloud.com", 8080);
-	Blynk.connectWiFi(WIFI_SSID, WIFI_PASSWD);
 	bool status = Blynk.connect(30000);
 	if(!status) {
 		Blynk.disconnect();
